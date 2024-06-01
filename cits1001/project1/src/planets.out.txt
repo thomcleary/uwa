@@ -1,0 +1,41 @@
+Round 1
+Earth vs. Jupiter
+Mercury vs. Venus
+Mars vs. Uranus
+Neptune vs. Saturn
+
+Round 2
+Venus vs. Earth
+Jupiter vs. Uranus
+Mercury vs. Saturn
+Mars vs. Neptune
+
+Round 3
+Earth vs. Uranus
+Venus vs. Saturn
+Jupiter vs. Neptune
+Mercury vs. Mars
+
+Round 4
+Saturn vs. Earth
+Uranus vs. Neptune
+Venus vs. Mars
+Jupiter vs. Mercury
+
+Round 5
+Earth vs. Neptune
+Saturn vs. Mars
+Uranus vs. Mercury
+Venus vs. Jupiter
+
+Round 6
+Mars vs. Earth
+Neptune vs. Mercury
+Saturn vs. Jupiter
+Uranus vs. Venus
+
+Round 7
+Earth vs. Mercury
+Mars vs. Jupiter
+Neptune vs. Venus
+Saturn vs. Uranus

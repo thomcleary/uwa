@@ -1,0 +1,19 @@
+Round 1
+T2 vs. T5
+T3 vs. T4
+
+Round 2
+T1 vs. T4
+T2 vs. T3
+
+Round 3
+T5 vs. T3
+T1 vs. T2
+
+Round 4
+T4 vs. T2
+T5 vs. T1
+
+Round 5
+T3 vs. T1
+T4 vs. T5

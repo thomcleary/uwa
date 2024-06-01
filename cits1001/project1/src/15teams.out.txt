@@ -1,0 +1,134 @@
+Round 1
+T2 vs. T15
+T3 vs. T14
+T4 vs. T13
+T5 vs. T12
+T6 vs. T11
+T7 vs. T10
+T8 vs. T9
+
+Round 2
+T1 vs. T14
+T2 vs. T13
+T3 vs. T12
+T4 vs. T11
+T5 vs. T10
+T6 vs. T9
+T7 vs. T8
+
+Round 3
+T15 vs. T13
+T1 vs. T12
+T2 vs. T11
+T3 vs. T10
+T4 vs. T9
+T5 vs. T8
+T6 vs. T7
+
+Round 4
+T14 vs. T12
+T15 vs. T11
+T1 vs. T10
+T2 vs. T9
+T3 vs. T8
+T4 vs. T7
+T5 vs. T6
+
+Round 5
+T13 vs. T11
+T14 vs. T10
+T15 vs. T9
+T1 vs. T8
+T2 vs. T7
+T3 vs. T6
+T4 vs. T5
+
+Round 6
+T12 vs. T10
+T13 vs. T9
+T14 vs. T8
+T15 vs. T7
+T1 vs. T6
+T2 vs. T5
+T3 vs. T4
+
+Round 7
+T11 vs. T9
+T12 vs. T8
+T13 vs. T7
+T14 vs. T6
+T15 vs. T5
+T1 vs. T4
+T2 vs. T3
+
+Round 8
+T10 vs. T8
+T11 vs. T7
+T12 vs. T6
+T13 vs. T5
+T14 vs. T4
+T15 vs. T3
+T1 vs. T2
+
+Round 9
+T9 vs. T7
+T10 vs. T6
+T11 vs. T5
+T12 vs. T4
+T13 vs. T3
+T14 vs. T2
+T15 vs. T1
+
+Round 10
+T8 vs. T6
+T9 vs. T5
+T10 vs. T4
+T11 vs. T3
+T12 vs. T2
+T13 vs. T1
+T14 vs. T15
+
+Round 11
+T7 vs. T5
+T8 vs. T4
+T9 vs. T3
+T10 vs. T2
+T11 vs. T1
+T12 vs. T15
+T13 vs. T14
+
+Round 12
+T6 vs. T4
+T7 vs. T3
+T8 vs. T2
+T9 vs. T1
+T10 vs. T15
+T11 vs. T14
+T12 vs. T13
+
+Round 13
+T5 vs. T3
+T6 vs. T2
+T7 vs. T1
+T8 vs. T15
+T9 vs. T14
+T10 vs. T13
+T11 vs. T12
+
+Round 14
+T4 vs. T2
+T5 vs. T1
+T6 vs. T15
+T7 vs. T14
+T8 vs. T13
+T9 vs. T12
+T10 vs. T11
+
+Round 15
+T3 vs. T1
+T4 vs. T15
+T5 vs. T14
+T6 vs. T13
+T7 vs. T12
+T8 vs. T11
+T9 vs. T10
