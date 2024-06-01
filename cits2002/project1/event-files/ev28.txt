@@ -1,0 +1,15 @@
+1 fork 2
+2 fork 3
+1 fork 4
+3 compute 1000
+2 fork 5
+4 compute 1000
+1 wait 4
+3 compute 1000
+5 compute 1000
+2 exit
+1 exit
+3 exit
+4 exit
+5 exit
+# tt=4160 (1000, 4096)

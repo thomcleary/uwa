@@ -1,0 +1,17 @@
+1 fork 2
+2 fork 3
+3 fork 4
+4 fork 5
+5 compute 1010
+4 compute 2500
+2 sleep 500
+3 compute 100
+2 compute 100
+1 compute 100
+5 exit
+4 exit
+3 exit
+1 exit
+2 exit
+#timetaken = 4010
+

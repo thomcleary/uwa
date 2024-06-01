@@ -1,0 +1,15 @@
+#
+# The initial process creates a pipe, forks a child process,
+# the parent writes to the pipe, and the child reads three times from the pipe.
+#
+1       pipe            1
+1       fork            2
+1       writepipe       1       1000
+2       readpipe        1       300
+2       readpipe        1       400
+2       readpipe        1       300
+1       exit
+2       exit
+#
+# with:         ./pipesim  thisfile  1000  64
+#               timetaken 2545

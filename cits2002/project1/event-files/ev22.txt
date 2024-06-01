@@ -1,0 +1,9 @@
+1       pipe            1
+1       fork            2
+2       compute 10000
+1       writepipe       1       5000
+2       readpipe        1       100
+2       readpipe        1       4900
+1       exit
+2       exit
+# timetaken = 20200 tq=1000 ps=4096

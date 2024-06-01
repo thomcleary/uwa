@@ -1,0 +1,11 @@
+1 pipe 1                                                                        
+1 fork 2
+2 compute 100
+2 exit
+1 writepipe 1 100 
+1 fork 3
+3 readpipe 1 100
+1 exit   
+3 exit
+# timetaken = 395
+#

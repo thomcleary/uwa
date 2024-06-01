@@ -1,0 +1,12 @@
+1       pipe            1
+1       fork            2
+2 pipe 2
+2 fork 3
+2 wait 3
+1 sleep 1000
+2 sleep 2000
+3 sleep 500
+1 exit
+2 exit
+3 exit
+##tt = 2610 (1000, 4096)

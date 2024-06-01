@@ -1,0 +1,12 @@
+#
+# The initial process sleeps, computes, sleeps, computes, and then exits
+# SEE ALSO - the Clarification made on Sept 1st
+#
+1       sleep   2000
+1       compute 1000
+1       sleep   1000
+1       compute 2000
+1       exit
+#
+# with:         ./pipesim  thisfile  1000  2000
+#               timetaken 6065

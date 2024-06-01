@@ -1,0 +1,6 @@
+1 fork 2
+2 sleep 1000
+1 sleep 300
+2 exit
+1 exit
+# tt=1035

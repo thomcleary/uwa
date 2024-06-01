@@ -1,0 +1,12 @@
+1 pipe 1
+1 fork 2
+2 sleep 1500
+2 compute 2000
+1 writepipe 1 5000
+2 readpipe 1 5000
+1 compute 2000
+2 sleep 2000
+1 wait 2
+2 exit
+1 exit
+# timetaken = 16165 (1000, 4096)

@@ -1,0 +1,4 @@
+1 pipe 1
+1 writepipe 1 100
+1 exit
+# timetaken = 125

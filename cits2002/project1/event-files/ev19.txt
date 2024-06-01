@@ -1,0 +1,16 @@
+1 pipe 1
+1 fork 2
+2 exit
+1 writepipe 1 10
+1 fork 3
+3 readpipe 1 10
+3 exit
+1 writepipe 1 30
+1 pipe 2
+1 fork 4
+4 readpipe 1 30
+1 writepipe 2 10
+4 readpipe 2 10
+1 exit
+4 exit
+# timetaken = 260

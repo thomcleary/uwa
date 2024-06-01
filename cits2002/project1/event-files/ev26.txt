@@ -1,0 +1,26 @@
+# TEST OF MULTIPLE PIPES WITH SAME PIPE NUMBER
+# If program fails, support of process-level pipe
+# array is missing.
+
+1       pipe            1
+1       fork            2
+1       writepipe       1       10
+2       pipe            2
+2       fork            3
+2       writepipe       2       10
+1       pipe            2
+1       fork            4
+1       writepipe       2       10
+4       readpipe        2       5
+4       readpipe        2       5
+3       readpipe        2       5
+3       readpipe        2       5
+2       readpipe        1       5
+2       readpipe        1       5
+1       exit
+2       exit
+3       exit
+4       exit
+
+# sample solution timetaken = 1100
+# (1000, 1)
