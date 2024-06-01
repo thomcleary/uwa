@@ -1,0 +1,40 @@
+Project report notes
+
+Task A
+-- does not rotate ground properly yet
+
+Task B
+--
+
+Task C
+-- if you move the light you can no longer change the attributes of the original object in the scene
+-- will need to add object selection
+
+
+Task D
+-- going lower than 0.01 didn't seem to do much
+
+Task E
+--
+
+Task F
+-- intensity increases with decrease in length of lvec
+-- decreases with increase in length
+
+Task G
+-
+
+Task H
+-- Gain light brightness variable in shaders
+-- SEPERATE OUT SPECULAR FROM COLOR
+-- ADD TO END TO GL_FRAG_COLOR to tend towards white
+
+
+Task I 
+-- adjust height of light with middle button can change brightness as you move left and right
+-- 2nd light not affected by translations only camera rotations
+-- also not affected by distance to fragments
+
+Task J
+-- need to be able to select objects to delete them
+-- fixes problem where you couldn't go back and change amb/diff/spec/shine of object once you moved a light
