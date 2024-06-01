@@ -1,0 +1,95 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"
+Relation:     reduced_clean_mobile_data
+Instances:    2000
+Attributes:   21
+              battery_power
+              has_bluetooth
+              clock_speed
+              has_dual_sim
+              front_camera_mp
+              has_four_g
+              internal_memory
+              mobile_depth
+              mobile_weight
+              num_cores
+              primary_camera_mp
+              pixels_height
+              pixels_width
+              ram
+              screen_height
+              screen_width
+              talk_time
+              has_three_g
+              has_touch_screen
+              has_wifi
+              price_category
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: not_high, high
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         3.1285 * (normalized) battery_power
+ +       0.0429 * (normalized) has_bluetooth=yes
+ +       0.0172 * (normalized) clock_speed
+ +       0.1717 * (normalized) has_dual_sim=yes
+ +      -0.0404 * (normalized) front_camera_mp
+ +       0.1217 * (normalized) has_four_g=yes
+ +       0.5315 * (normalized) internal_memory
+ +       0.0617 * (normalized) mobile_depth
+ +      -0.8237 * (normalized) mobile_weight
+ +       0.0546 * (normalized) num_cores
+ +      -0.02   * (normalized) primary_camera_mp
+ +       1.9975 * (normalized) pixels_height
+ +       2.0821 * (normalized) pixels_width
+ +      11.7787 * (normalized) ram
+ +       0.5035 * (normalized) screen_height
+ +      -0.0414 * (normalized) screen_width
+ +       0.2274 * (normalized) talk_time
+ +       0.0597 * (normalized) has_three_g=yes
+ +       0.0933 * (normalized) has_touch_screen=yes
+ +       0.1658 * (normalized) has_wifi=no
+ -      12.5716
+
+Number of kernel evaluations: 311877 (80.638% cached)
+
+
+
+Time taken to build model: 0.16 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1960               98      %
+Incorrectly Classified Instances        40                2      %
+Kappa statistic                          0.9469
+Mean absolute error                      0.02  
+Root mean squared error                  0.1414
+Relative absolute error                  5.3314 %
+Root relative squared error             32.6599 %
+Total Number of Instances             2000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.984    0.032    0.989      0.984    0.987      0.947    0.976     0.985     not_high
+                 0.968    0.016    0.953      0.968    0.960      0.947    0.976     0.930     high
+Weighted Avg.    0.980    0.028    0.980      0.980    0.980      0.947    0.976     0.972     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 1476   24 |    a = not_high
+   16  484 |    b = high
+

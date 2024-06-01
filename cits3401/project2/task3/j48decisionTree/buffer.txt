@@ -1,0 +1,145 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     reduced_clean_mobile_data
+Instances:    2000
+Attributes:   21
+              battery_power
+              has_bluetooth
+              clock_speed
+              has_dual_sim
+              front_camera_mp
+              has_four_g
+              internal_memory
+              mobile_depth
+              mobile_weight
+              num_cores
+              primary_camera_mp
+              pixels_height
+              pixels_width
+              ram
+              screen_height
+              screen_width
+              talk_time
+              has_three_g
+              has_touch_screen
+              has_wifi
+              price_category
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+ram <= 3012
+|   ram <= 2258: not_high (1060.0)
+|   ram > 2258
+|   |   battery_power <= 1333
+|   |   |   pixels_height <= 1290: not_high (215.0/2.0)
+|   |   |   pixels_height > 1290
+|   |   |   |   mobile_weight <= 100: high (4.0)
+|   |   |   |   mobile_weight > 100
+|   |   |   |   |   primary_camera_mp <= 8
+|   |   |   |   |   |   mobile_depth <= 0.4: not_high (4.0)
+|   |   |   |   |   |   mobile_depth > 0.4: high (4.0/1.0)
+|   |   |   |   |   primary_camera_mp > 8: not_high (10.0)
+|   |   battery_power > 1333
+|   |   |   pixels_width <= 1347
+|   |   |   |   ram <= 2722: not_high (84.0/1.0)
+|   |   |   |   ram > 2722
+|   |   |   |   |   pixels_height <= 563
+|   |   |   |   |   |   has_touch_screen = no
+|   |   |   |   |   |   |   battery_power <= 1869: not_high (6.0)
+|   |   |   |   |   |   |   battery_power > 1869: high (2.0)
+|   |   |   |   |   |   has_touch_screen = yes: not_high (10.0)
+|   |   |   |   |   pixels_height > 563
+|   |   |   |   |   |   has_four_g = no
+|   |   |   |   |   |   |   has_bluetooth = no: not_high (4.0/1.0)
+|   |   |   |   |   |   |   has_bluetooth = yes: high (2.0)
+|   |   |   |   |   |   has_four_g = yes: high (5.0)
+|   |   |   pixels_width > 1347
+|   |   |   |   pixels_height <= 1214
+|   |   |   |   |   ram <= 2528
+|   |   |   |   |   |   pixels_width <= 1886
+|   |   |   |   |   |   |   mobile_weight <= 91: high (3.0/1.0)
+|   |   |   |   |   |   |   mobile_weight > 91: not_high (15.0)
+|   |   |   |   |   |   pixels_width > 1886: high (3.0)
+|   |   |   |   |   ram > 2528
+|   |   |   |   |   |   mobile_weight <= 192: high (28.0/3.0)
+|   |   |   |   |   |   mobile_weight > 192: not_high (3.0)
+|   |   |   |   pixels_height > 1214: high (18.0)
+ram > 3012
+|   battery_power <= 1262
+|   |   pixels_width <= 1036
+|   |   |   ram <= 3377: not_high (33.0/1.0)
+|   |   |   ram > 3377
+|   |   |   |   battery_power <= 763
+|   |   |   |   |   primary_camera_mp <= 7: not_high (11.0)
+|   |   |   |   |   primary_camera_mp > 7
+|   |   |   |   |   |   screen_width <= 2: high (5.0)
+|   |   |   |   |   |   screen_width > 2
+|   |   |   |   |   |   |   has_dual_sim = no: not_high (5.0)
+|   |   |   |   |   |   |   has_dual_sim = yes
+|   |   |   |   |   |   |   |   clock_speed <= 1.3: not_high (6.0/1.0)
+|   |   |   |   |   |   |   |   clock_speed > 1.3: high (2.0)
+|   |   |   |   battery_power > 763: high (27.0/2.0)
+|   |   pixels_width > 1036
+|   |   |   ram <= 3461
+|   |   |   |   pixels_height <= 506
+|   |   |   |   |   battery_power <= 1011
+|   |   |   |   |   |   pixels_width <= 1676: not_high (16.0)
+|   |   |   |   |   |   pixels_width > 1676: high (3.0/1.0)
+|   |   |   |   |   battery_power > 1011
+|   |   |   |   |   |   has_wifi = yes: high (6.0)
+|   |   |   |   |   |   has_wifi = no: not_high (3.0/1.0)
+|   |   |   |   pixels_height > 506
+|   |   |   |   |   has_four_g = no
+|   |   |   |   |   |   pixels_width <= 1229: not_high (2.0)
+|   |   |   |   |   |   pixels_width > 1229: high (16.0/2.0)
+|   |   |   |   |   has_four_g = yes
+|   |   |   |   |   |   ram <= 3115: not_high (3.0/1.0)
+|   |   |   |   |   |   ram > 3115: high (27.0)
+|   |   |   ram > 3461: high (85.0)
+|   battery_power > 1262
+|   |   ram <= 3278
+|   |   |   mobile_weight <= 181: high (55.0/2.0)
+|   |   |   mobile_weight > 181
+|   |   |   |   talk_time <= 12
+|   |   |   |   |   front_camera_mp <= 2: high (4.0)
+|   |   |   |   |   front_camera_mp > 2: not_high (3.0/1.0)
+|   |   |   |   talk_time > 12: not_high (4.0)
+|   |   ram > 3278: high (204.0)
+
+Number of Leaves  : 	40
+
+Size of the tree : 	79
+
+
+Time taken to build model: 0.08 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1878               93.9    %
+Incorrectly Classified Instances       122                6.1    %
+Kappa statistic                          0.8384
+Mean absolute error                      0.0637
+Root mean squared error                  0.2387
+Relative absolute error                 16.9725 %
+Root relative squared error             55.1295 %
+Total Number of Instances             2000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.956    0.112    0.962      0.956    0.959      0.838    0.944     0.969     not_high
+                 0.888    0.044    0.871      0.888    0.879      0.838    0.944     0.848     high
+Weighted Avg.    0.939    0.095    0.939      0.939    0.939      0.838    0.944     0.939     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 1434   66 |    a = not_high
+   56  444 |    b = high
+

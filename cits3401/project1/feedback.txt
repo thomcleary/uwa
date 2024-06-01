@@ -1,0 +1,50 @@
+Student Name:Thomas Cleary 			Student Number:21704985
+
+Description of the data cleaning with code or screenshot 
+5
+Excellent 
+
+Description of ETL process with code or screenshot
+5
+
+Conceptual hierarchies and corresponding StarNet
+5
+Great design with detailed explanations 
+
+Star/Snowflake/galaxy Schema
+4 (3 + 1 bonus)
+time dimension got some issues, month should contain full information(such as 2020-1), only Month name or number could lead to issues.
+Bonus for detailed explanations 
+
+SQL Script file for building and loading the database
+5
+Correct code with self-check, prompts and explanations.
+
+The correctness of the answer of task 8
+5
+
+PowerBI visualization of the 1, 2 business queries
+4
+
+
+PowerBI visualization of the 3, 4 business queries
+5(4 + 1 bonus)
+
+all of them are bar chart, which can be improved
+The line chart may be more suitable for time related queries that can show the trends.
+Bonus for number labels with improved readability for four queries.
+
+Coherence between the design and implementation, quality and complexity of the solution, reproducibility of the solution
+5
+Excellent!
+
+
+Grade
+(43)/45
+5 - Exemplary (comprehensive solution demonstrating professional application of the knowledge taught in the class with initiative beyond just meeting the project requirement. I.e. a highly automated and highly fault tolerant solution for data cleaning/preprocessing and/or other data operations, a deep understanding in dataset with excellent schema design, a very clear, pretty, and convincing powerBI visualisation design, a formal style and well-written report.)
+4 - Proficient (correct application of the taught concepts)
+3 - Satisfactory (managed to meet most of the project requirement)
+2 - Developing (some skills are demonstrated but need revision)
+1 - Not yet Satisfactory (minimal effort)
+0 - Not attempted.
+

@@ -1,0 +1,54 @@
+--------------------------------------------------------------------------------
+OWID Country Names
+--------------------------------------------------------------------------------
+Hong Kong---------------------- "China" with province/state as Hong Kong in timeseries
+Myanmar ----------------------- "Burma" in timeseries
+Palestine --------------------- "West Bank and Gaza" in timeseries
+South Korea ------------------- "Korea, South" in timeseries
+Taiwan ------------------------ "Taiwan*" in timeseries
+Timor ------------------------- "Timor-Leste" in timeseries
+Vatican ----------------------- "Holy See" in timeseries
+Cape Verde -------------------- "Cabo Verde" in timeseries
+Congo ------------------------- "Congo (Brazzaville) in timeseries
+Democratic Republic of Congo -- "Congo (Kinshasa) in timeseries
+United States ----------------- "US" in timeseries
+--------------------------------------------------------------------------------
+TimeSeries Country Names
+--------------------------------------------------------------------------------
+Burma ------------------------- "Myanmar" in owid
+Cabo Verde -------------------- "Cape Verde" in owid
+Congo (Brazzaville) ----------- "Congo" in owid
+Congo (Kinshasa) -------------- "Democratic Republic of Congo" in owid
+Diamond Princess -------------- THIS IS A CRUISE SHIP, REMOVE
+Holy See ---------------------- "Vatican" in owid
+Korea, South ------------------ "South Korea" in owid
+MS Zaandam -------------------- THIS IS A CRUISE SHIP, REMOVE
+Micronesia--------------------- "Marshall Islands" in owid
+Taiwan* ----------------------- "Taiwan" in owid
+Timor-Leste ------------------- "Timor" in owid
+US ---------------------------- "United States" in owid
+West Bank and Gaza ------------ "Palestine" in owid
+--------------------------------------------------------------------------------
+Changes to TimeSeries Files
+--------------------------------------------------------------------------------
+Burma              -> Myanmar
+Cabo Verde         -> Cape Verde
+Congo (Braz...)    -> Congo
+Congo (Kins...)    -> Democratic Republic of Congo
+Holy See           -> Vatican
+Korea, South       -> South Korea
+Micronesia         -> Marshall Islands
+Taiwan*            -> Taiwan
+Timor-Leste        -> Timor
+US                 -> United States
+West Bank and Gaza -> Palestine
+
+CHANGE China -> Hong Kong where province == Hong Kong
+
+REMOVE CRUISESHIPS FROM CSV FILES
+["Diamond Princess", "MS Zaandam"]
+
+CHANGE China -> Hong Kong where province == Hong Kong
+
+However will leace the Diamond Princess and Grand Princess related to Canada in
+as it has been assigned a country. 

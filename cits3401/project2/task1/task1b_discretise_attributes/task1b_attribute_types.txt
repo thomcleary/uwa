@@ -1,0 +1,67 @@
+###############################################################################
+# Type of Each Attribute 
+###############################################################################
+
+battery_power
+    - numeric
+
+blue
+    - nominal (yes/no)
+
+clock_speed
+    - numeric
+
+dual_sim
+    - binary
+
+fc
+    - numeric
+
+four_g
+    - binary
+
+int_memory
+    - numeric
+
+m_dep
+    - numeric
+
+mobile_wt
+    - numeric
+
+n_cores
+    - numeric
+
+pc
+    - numeric
+
+px_height
+    - numeric
+
+
+px_width
+    - numeric
+
+ram
+    - numeric
+
+sc_h
+    - numeric
+
+sc_w
+    - numeric
+
+talk_time
+    - numeric
+
+three_g
+    - nominal (yes/no)
+
+touch_screen
+    - binary
+
+wifi
+    - nominal (yes/no)
+
+price_category
+    - binary (should be nominal - high/not_high)

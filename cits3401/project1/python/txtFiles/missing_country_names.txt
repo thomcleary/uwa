@@ -1,0 +1,33 @@
+--------------------------------------------------------------------------------
+OWID Country Names
+(Missing in TimeSeries)
+--------------------------------------------------------------------------------
+Cape Verde
+Congo
+Democratic Republic of Congo
+Hong Kong
+Myanmar
+Palestine
+South Korea
+Taiwan
+Timor
+United States
+Vatican
+--------------------------------------------------------------------------------
+TimeSeries Country Names
+(Missing in OWID)
+--------------------------------------------------------------------------------
+Burma
+Cabo Verde
+Congo (Brazzaville)
+Congo (Kinshasa)
+Diamond Princess
+Holy See
+Korea, South
+MS Zaandam
+Micronesia
+Taiwan*
+Timor-Leste
+US
+West Bank and Gaza
+--------------------------------------------------------------------------------

@@ -1,0 +1,11 @@
+--- Countries with negative values in Fact Table
+
+- Belgium
+    - Recovered
+        - Turns to 0s at 11/12/20
+        - FIX THIS
+
+
+- Serbia stopped reporting
+
+- United states stopped reporting 

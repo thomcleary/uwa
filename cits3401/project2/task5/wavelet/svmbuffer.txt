@@ -1,0 +1,109 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"
+Relation:     reduced_clean_mobile_data-weka.filters.unsupervised.attribute.Wavelet-do-not-check-capabilities-AHaar-PZero-Fweka.filters.MultiFilter -F "weka.filters.unsupervised.attribute.ReplaceMissingValues " -F "weka.filters.unsupervised.attribute.Normalize -S 1.0 -T 0.0"
+Instances:    200
+Attributes:   33
+              Haar_1
+              Haar_2
+              Haar_3
+              Haar_4
+              Haar_5
+              Haar_6
+              Haar_7
+              Haar_8
+              Haar_9
+              Haar_10
+              Haar_11
+              Haar_12
+              Haar_13
+              Haar_14
+              Haar_15
+              Haar_16
+              Haar_17
+              Haar_18
+              Haar_19
+              Haar_20
+              Haar_21
+              Haar_22
+              Haar_23
+              Haar_24
+              Haar_25
+              Haar_26
+              Haar_27
+              Haar_28
+              Haar_29
+              Haar_30
+              Haar_31
+              Haar_32
+              price_category
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: high, not_high
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -1.4986 * (normalized) Haar_1
+ +      -1.6134 * (normalized) Haar_2
+ +       1.6104 * (normalized) Haar_3
+ +      -0.2133 * (normalized) Haar_4
+ +       0.2473 * (normalized) Haar_5
+ +       2.173  * (normalized) Haar_6
+ +      -0.2133 * (normalized) Haar_7
+ +      -1.0721 * (normalized) Haar_9
+ +       0.6891 * (normalized) Haar_10
+ +       0.4552 * (normalized) Haar_11
+ +      -2.9944 * (normalized) Haar_12
+ +      -0.257  * (normalized) Haar_13
+ +      -1.128  * (normalized) Haar_17
+ +      -0.0137 * (normalized) Haar_18
+ +      -0.2473 * (normalized) Haar_19
+ +      -0.0625 * (normalized) Haar_20
+ +       0.1748 * (normalized) Haar_21
+ +       1.4876 * (normalized) Haar_22
+ +       4.0895 * (normalized) Haar_23
+ +      -0.1371 * (normalized) Haar_24
+ +      -0.7606 * (normalized) Haar_25
+ +       0.2263 * (normalized) Haar_26
+ +       0.378 
+
+Number of kernel evaluations: 6825 (93.265% cached)
+
+
+
+Time taken to build model: 0.03 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         190               95      %
+Incorrectly Classified Instances        10                5      %
+Kappa statistic                          0.863 
+Mean absolute error                      0.05  
+Root mean squared error                  0.2236
+Relative absolute error                 13.2847 %
+Root relative squared error             51.6387 %
+Total Number of Instances              200     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.860    0.020    0.935      0.860    0.896      0.864    0.920     0.839     high
+                 0.980    0.140    0.955      0.980    0.967      0.864    0.920     0.950     not_high
+Weighted Avg.    0.950    0.110    0.950      0.950    0.949      0.864    0.920     0.923     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  43   7 |   a = high
+   3 147 |   b = not_high
+

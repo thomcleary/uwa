@@ -1,0 +1,97 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.SimpleKMeans -init 0 -max-candidates 100 -periodic-pruning 10000 -min-density 2.0 -t1 -1.25 -t2 -1.0 -N 2 -A "weka.core.EuclideanDistance -R first-last" -I 500 -num-slots 1 -S 10
+Relation:     reduced_clean_mobile_data-weka.filters.unsupervised.attribute.NumericToNominal-Rfirst-last
+Instances:    2000
+Attributes:   21
+              battery_power
+              has_bluetooth
+              clock_speed
+              has_dual_sim
+              front_camera_mp
+              has_four_g
+              internal_memory
+              mobile_depth
+              mobile_weight
+              num_cores
+              primary_camera_mp
+              pixels_height
+              pixels_width
+              ram
+              screen_height
+              screen_width
+              talk_time
+              has_three_g
+              has_touch_screen
+              has_wifi
+Ignored:
+              price_category
+Test mode:    Classes to clusters evaluation on training data
+
+=== Clustering model (full training set) ===
+
+
+kMeans
+======
+
+Number of iterations: 6
+Within cluster sum of squared errors: 29497.0
+
+Initial starting points (random):
+
+Cluster 0: 1341,yes,2.1,yes,0,no,36,0.4,107,8,1,473,574,2200,18,14,15,no,yes,no
+Cluster 1: 501,yes,0.5,yes,14,no,22,0.5,174,6,20,239,1636,3077,17,3,17,no,no,no
+
+Missing values globally replaced with mean/mode
+
+Final cluster centroids:
+                                 Cluster#
+Attribute            Full Data          0          1
+                      (2000.0)   (1202.0)    (798.0)
+====================================================
+battery_power              618        618        772
+has_bluetooth               no        yes         no
+clock_speed                0.5        0.5        0.5
+has_dual_sim               yes         no        yes
+front_camera_mp              0          0          1
+has_four_g                 yes        yes        yes
+internal_memory             27         27         14
+mobile_depth               0.1        0.1        0.5
+mobile_weight              182        131        105
+num_cores                    4          8          6
+primary_camera_mp           10          1         20
+pixels_height              347         88        179
+pixels_width               874        874       1429
+ram                       1229       1464       1277
+screen_height               17         12         17
+screen_width                 1          1          3
+talk_time                    7         15          4
+has_three_g                yes        yes        yes
+has_touch_screen           yes        yes         no
+has_wifi                   yes         no        yes
+
+
+
+
+Time taken to build model (full training data) : 0.01 seconds
+
+=== Model and evaluation on training set ===
+
+Clustered Instances
+
+0      1202 ( 60%)
+1       798 ( 40%)
+
+
+Class attribute: price_category
+Classes to Clusters:
+
+   0   1  <-- assigned to cluster
+ 917 583 | not_high
+ 285 215 | high
+
+Cluster 0 <-- not_high
+Cluster 1 <-- high
+
+Incorrectly clustered instances :	868.0	 43.4    %
+
