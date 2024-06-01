@@ -1,0 +1,475 @@
+---
+title: "random_sims"
+author: "Thomas Cleary"
+date: "07/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE}
+# Reset the Rstudio environment
+reset_env <- function() {
+  # clear the global namespace
+  rm(list=setdiff(ls(envir = .GlobalEnv), "reset_env"), envir = .GlobalEnv)
+
+  # un-attach loaded packages
+  if (!is.null(sessionInfo()$otherPkgs)) {
+    invisible(
+      lapply(paste0('package:', names(sessionInfo()$otherPkgs)),
+             detach, character.only=TRUE, unload=TRUE)
+    )
+  }
+
+  # stop R converting strings to factors automatically
+  options(stringsAsFactors = FALSE)
+
+  library(ggplot2)
+  library(patchwork)
+}
+```
+
+```{r, echo=FALSE, message=FALSE, results='hide', error=FALSE, warning=FALSE}
+reset_env()
+```
+
+
+# Get data frames for random and basic agent
+```{r}
+basic.spy = read.csv(paste0("../basic-spy.csv"))
+basic.res = read.csv(paste0("../basic-resistance.csv"))
+basic.overall = read.csv(paste0("../basic-overall.csv"))
+
+random.spy = read.csv(paste0("../random-spy.csv"))
+random.res = read.csv(paste0("../random-resistance.csv"))
+random.overall = read.csv(paste0("../random-overall.csv"))
+
+basicMCTS.spy = read.csv(paste0("../basicMCTS-spy.csv"))
+basicMCTS.res = read.csv(paste0("../basicMCTS-resistance.csv"))
+basicMCTS.overall = read.csv(paste0("../basicMCTS-overall.csv"))
+
+randomMCTS.spy = read.csv(paste0("../randomMCTS-spy.csv"))
+randomMCTS.res = read.csv(paste0("../randomMCTS-resistance.csv"))
+randomMCTS.overall = read.csv(paste0("../randomMCTS-overall.csv"))
+
+mixed.spy = read.csv(paste0("../mixed-spy.csv"))
+mixed.res = read.csv(paste0("../mixed-resistance.csv"))
+mixed.overall = read.csv(paste0("../mixed-overall.csv"))
+```
+
+
+# Plot of random and basic agent spy performance
+```{r}
+last_basic_row = basic.spy[dim(basic.spy)[1],]
+last_random_row = random.spy[dim(random.spy)[1],]
+
+last_basicMCTS_row = basicMCTS.spy[dim(basicMCTS.spy)[1],]
+last_randomMCTS_row = randomMCTS.spy[dim(randomMCTS.spy)[1],]
+
+last_mixed_row = mixed.spy[dim(mixed.spy)[1],]
+
+
+spy_plot = ggplot() +
+  
+  geom_line(
+    data = random.spy, aes(x = games_played, y = spy_win_ratio, colour = "Random Agent")
+  ) +
+  geom_point(
+    data = last_random_row, aes(x = dim(random.spy)[1], y = spy_win_ratio, colour = "Random Agent")
+  ) +
+  geom_text(
+    data=last_random_row, 
+    size=3.5,
+    aes(
+      x=dim(random.spy)[1], y = spy_win_ratio, 
+      label = paste0(round(spy_win_ratio, 2) * 100, "%"),
+      colour="Random Agent"
+      ),
+      vjust = -0.8,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = basic.spy, aes(x = games_played, y = spy_win_ratio, colour = "Basic Agent")
+  ) +
+  geom_point(
+    data = last_basic_row, aes(x = dim(basic.spy)[1], y = spy_win_ratio, colour = "Basic Agent")
+  ) +
+  geom_text(
+    data=last_basic_row, 
+    size=3.5,
+    aes(
+      x=dim(basic.spy)[1], y = spy_win_ratio, 
+      label = paste0(round(spy_win_ratio, 2) * 100, "%"),
+      colour="Basic Agent",
+      ),
+      vjust = -0.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = randomMCTS.spy, aes(x = games_played, y = spy_win_ratio, colour = "randomMCTS Agent")
+  ) +
+  geom_point(
+    data = last_randomMCTS_row, aes(x = dim(randomMCTS.spy)[1], y = spy_win_ratio, colour = "randomMCTS Agent")
+  ) +
+  geom_text(
+    data=last_randomMCTS_row, 
+    size=3.5,
+    aes(
+      x=dim(randomMCTS.spy)[1], y = spy_win_ratio, 
+      label = paste0(round(spy_win_ratio, 2) * 100, "%"),
+      colour="randomMCTS Agent"
+      ),
+      vjust = -1.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = basicMCTS.spy, aes(x = games_played, y = spy_win_ratio, colour = "basicMCTS Agent")
+  ) +
+  geom_point(
+    data = last_basicMCTS_row, aes(x = dim(basicMCTS.spy)[1], y = spy_win_ratio, colour = "basicMCTS Agent")
+  ) +
+  geom_text(
+    data=last_basicMCTS_row, 
+    size=3.5,
+    aes(
+      x=dim(random.spy)[1], y = spy_win_ratio, 
+      label = paste0(round(spy_win_ratio, 2) * 100, "%"),
+      colour="basicMCTS Agent"
+      ),
+      vjust = +1.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = mixed.spy, aes(x = games_played, y = spy_win_ratio, colour = "Mixed Agent")
+  ) +
+  geom_point(
+    data = last_mixed_row, aes(x = dim(mixed.spy)[1], y = spy_win_ratio, colour = "Mixed Agent")
+  ) +
+  geom_text(
+    data=last_mixed_row, 
+    size=3.5,
+    aes(
+      x=dim(random.spy)[1], y = spy_win_ratio, 
+      label = paste0(round(spy_win_ratio, 2) * 100, "%"),
+      colour="Mixed Agent"
+      ),
+      vjust = +1.5,
+    show.legend = FALSE
+  ) + 
+  
+  ylim(0.92, 1) + 
+  
+  scale_x_continuous(
+    breaks=seq(0, last_basic_row$games_played, 1000),
+    labels = scales::comma
+  ) + 
+  
+  labs(
+    subtitle = "Games Played as Spy",
+    x = "",
+    y = "",
+    colour = "Agent"
+  ) + 
+  
+  theme(
+    axis.text.x = element_text(angle = 90)
+  )
+  
+
+print(spy_plot)
+
+```
+
+# Plot of random and basic agent res performance
+```{r}
+last_basic_row = basic.res[dim(basic.res)[1],]
+last_random_row = random.res[dim(random.res)[1],]
+
+last_basicMCTS_row = basicMCTS.res[dim(basicMCTS.res)[1],]
+last_randomMCTS_row = randomMCTS.res[dim(randomMCTS.res)[1],]
+
+last_mixed_row = mixed.res[dim(mixed.res)[1],]
+
+
+res_plot = ggplot() +
+  
+  geom_line(
+    data = random.res, aes(x = games_played, y = res_win_ratio, colour = "Random Agent")
+  ) +
+  geom_point(
+    data = last_random_row, aes(x = dim(random.res)[1], y = res_win_ratio, colour = "Random Agent")
+  ) +
+  geom_text(
+    data=last_random_row, 
+    size=3.5,
+    aes(
+      x=dim(random.res)[1], y = res_win_ratio, 
+      label = paste0(round(res_win_ratio, 2) * 100, "%"),
+      colour="Random Agent"
+      ),
+      vjust = -0.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = basic.res, aes(x = games_played, y = res_win_ratio, colour = "Basic Agent")
+  ) +
+  geom_point(
+    data = last_basic_row, aes(x = dim(basic.res)[1], y = res_win_ratio, colour = "Basic Agent")
+  ) +
+  geom_text(
+    data=last_basic_row, 
+    size=3.5,
+    aes(
+      x=dim(basic.res)[1], y = res_win_ratio, 
+      label = paste0(round(res_win_ratio, 2) * 100, "%"),
+      colour="Basic Agent",
+      ),
+      vjust = -0.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = randomMCTS.res, aes(x = games_played, y = res_win_ratio, colour = "randomMCTS Agent")
+  ) +
+  geom_point(
+    data = last_randomMCTS_row, aes(x = dim(randomMCTS.res)[1], y = res_win_ratio, colour = "randomMCTS Agent")
+  ) +
+  geom_text(
+    data=last_randomMCTS_row, 
+    size=3.5,
+    aes(
+      x=dim(randomMCTS.res)[1], y = res_win_ratio, 
+      label = paste0(round(res_win_ratio, 2) * 100, "%"),
+      colour="randomMCTS Agent"
+      ),
+      vjust = -1.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = basicMCTS.res, aes(x = games_played, y = res_win_ratio, colour = "basicMCTS Agent")
+  ) +
+  geom_point(
+    data = last_basicMCTS_row, aes(x = dim(basicMCTS.res)[1], y = res_win_ratio, colour = "basicMCTS Agent")
+  ) +
+  geom_text(
+    data=last_basicMCTS_row, 
+    size=3.5,
+    aes(
+      x=dim(random.res)[1], y = res_win_ratio, 
+      label = paste0(round(res_win_ratio, 2) * 100, "%"),
+      colour="basicMCTS Agent"
+      ),
+      vjust = +1.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = mixed.res, aes(x = games_played, y = res_win_ratio, colour = "Mixed Agent")
+  ) +
+  geom_point(
+    data = last_mixed_row, aes(x = dim(mixed.res)[1], y = res_win_ratio, colour = "Mixed Agent")
+  ) +
+  geom_text(
+    data=last_mixed_row, 
+    size=3.5,
+    aes(
+      x=dim(random.res)[1], y = res_win_ratio, 
+      label = paste0(round(res_win_ratio, 2) * 100, "%"),
+      colour="Mixed Agent"
+      ),
+      vjust = +1.5,
+    show.legend = FALSE
+  ) + 
+  
+  ylim(0, 0.06) + 
+  
+  scale_x_continuous(
+    breaks=seq(0, last_basic_row$games_played, 1000),
+    labels = scales::comma
+  ) + 
+  
+  labs(
+    subtitle = "Games Played as Resistance",
+    x = "",
+    y = "",
+    colour = "Agent"
+  ) + 
+  
+  theme(
+    axis.text.x = element_text(angle = 90)
+  ) 
+
+  
+
+print(res_plot)
+
+```
+
+# Plot of random and basic agent res performance overall
+```{r}
+last_basic_row = basic.overall[dim(basic.overall)[1],]
+last_random_row = random.overall[dim(random.overall)[1],]
+
+last_basicMCTS_row = basicMCTS.overall[dim(basicMCTS.overall)[1],]
+last_randomMCTS_row = randomMCTS.overall[dim(randomMCTS.overall)[1],]
+
+last_mixed_row = mixed.overall[dim(mixed.overall)[1],]
+
+
+overall_plot = ggplot() +
+  
+  geom_line(
+    data = random.overall, aes(x = games_played, y = win_ratio, colour = "Random Agent")
+  ) +
+  geom_point(
+    data = last_random_row, aes(x = dim(random.overall)[1], y = win_ratio, colour = "Random Agent")
+  ) +
+  geom_text(
+    data=last_random_row, 
+    size=3.5,
+    aes(
+      x=dim(random.overall)[1], y = win_ratio, 
+      label = paste0(round(win_ratio, 2) * 100, "%"),
+      colour="Random Agent"
+      ),
+      vjust = -0.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = basic.overall, aes(x = games_played, y = win_ratio, colour = "Basic Agent")
+  ) +
+  geom_point(
+    data = last_basic_row, aes(x = dim(basic.overall)[1], y = win_ratio, colour = "Basic Agent")
+  ) +
+  geom_text(
+    data=last_basic_row, 
+    size=3.5,
+    aes(
+      x=dim(basic.overall)[1], y = win_ratio, 
+      label = paste0(round(win_ratio, 2) * 100, "%"),
+      colour="Basic Agent",
+      ),
+      vjust = +1.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = randomMCTS.overall, aes(x = games_played, y = win_ratio, colour = "randomMCTS Agent")
+  ) +
+  geom_point(
+    data = last_randomMCTS_row, aes(x = dim(randomMCTS.overall)[1], y = win_ratio, colour = "randomMCTS Agent")
+  ) +
+  geom_text(
+    data=last_randomMCTS_row, 
+    size=3.5,
+    aes(
+      x=dim(randomMCTS.overall)[1], y = win_ratio, 
+      label = paste0(round(win_ratio, 2) * 100, "%"),
+      colour="randomMCTS Agent"
+      ),
+      vjust = -1.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = basicMCTS.overall, aes(x = games_played, y = win_ratio, colour = "basicMCTS Agent")
+  ) +
+  geom_point(
+    data = last_basicMCTS_row, aes(x = dim(basicMCTS.overall)[1], y = win_ratio, colour = "basicMCTS Agent")
+  ) +
+  geom_text(
+    data=last_basicMCTS_row, 
+    size=3.5,
+    aes(
+      x=dim(random.overall)[1], y = win_ratio, 
+      label = paste0(round(win_ratio, 2) * 100, "%"),
+      colour="basicMCTS Agent"
+      ),
+      vjust = -2.5,
+    show.legend = FALSE
+  ) + 
+  
+  geom_line(
+    data = mixed.overall, aes(x = games_played, y = win_ratio, colour = "Mixed Agent")
+  ) +
+  geom_point(
+    data = last_mixed_row, aes(x = dim(mixed.overall)[1], y = win_ratio, colour = "Mixed Agent")
+  ) +
+  geom_text(
+    data=last_mixed_row, 
+    size=3.5,
+    aes(
+      x=dim(random.overall)[1], y = win_ratio, 
+      label = paste0(round(win_ratio, 2) * 100, "%"),
+      colour="Mixed Agent"
+      ),
+      vjust = +3.5,
+    show.legend = FALSE
+  ) + 
+  
+  ylim(0.34, 0.48) + 
+  
+  scale_x_continuous(
+    breaks=seq(0, last_basic_row$games_played, 1000),
+    labels = scales::comma
+  ) + 
+  
+  labs(
+    subtitle = "All Games Played",
+    x = "",
+    y = "",
+    colour = "Agent"
+  ) + 
+  
+  theme(
+    axis.text.x = element_text(angle = 90)
+  ) 
+
+  
+
+print(overall_plot)
+```
+
+# all 3 plots
+``` {r, fig.height=3, fig.width=6}
+library(ggpubr)
+
+all.plots = ggarrange(
+  spy_plot, res_plot, overall_plot,
+  ncol=3, nrow=1, common.legend=TRUE,
+  legend="top"
+)
+
+
+all.plots = annotate_figure(
+  all.plots,
+  top = text_grob("Win Ratios of Various Agents Playing Against Eachother",
+                  size=18, face="bold"),
+  left = text_grob("Win Ratio", size=14, rot=90),
+  bottom = text_grob("Games Simulated", size=14)
+)
+
+all.plots
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

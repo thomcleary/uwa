@@ -1,0 +1,196 @@
+# spy games
+```{r}
+library(ggplot2)
+
+last_basic_row = basic.spy[dim(basic.spy)[1],]
+last_random_row = random.spy[dim(random.spy)[1],]
+last_randomMCTS_row = mcts.random.spy[dim(mcts.random.spy)[1],]
+
+
+basic.spy = data.frame(
+  games_played = seq(1:last_randomMCTS_row$games_played[1]),
+  spy_win_ratio = rep(last_basic_row$spy_win_ratio[1], last_randomMCTS_row$games_played[1])
+)
+
+random.spy = data.frame(
+  games_played = seq(1:last_randomMCTS_row$games_played[1]),
+  spy_win_ratio = rep(last_random_row$spy_win_ratio[1], last_randomMCTS_row$games_played[1])
+)
+
+
+spy_plot = ggplot() +
+  
+  geom_line(
+    data = basic.spy, aes(x = games_played, y = spy_win_ratio, colour = "Basic Agent")
+  ) +
+  
+  geom_line(
+    data = random.spy, aes(x = games_played, y = spy_win_ratio, colour = "Random Agent")
+  ) +
+  
+  geom_line(
+    data = mcts.random.spy, aes(x = games_played, y = spy_win_ratio, colour = "Random MCTS Agent")
+  ) +
+  
+  geom_point(data = last_basic_row, aes(x = dim(basic.spy)[1], y = spy_win_ratio, colour = "Basic Agent")) +
+  geom_text(data=last_basic_row, aes(
+    x=dim(basic.spy)[1], y = spy_win_ratio, label = paste0(round(spy_win_ratio, 2) * 100, "%")),
+            vjust = -0.5, color="blue") +
+  
+  geom_point(data = last_random_row, aes(x = dim(random.spy)[1], y = spy_win_ratio, colour = "Random Agent")) +
+  geom_text(data=last_random_row, aes(
+    x=dim(random.spy)[1], y = spy_win_ratio, label = paste0(round(spy_win_ratio, 2) * 100, "%")),
+            vjust = +1.5, color="red") +
+  
+  geom_point(data = last_randomMCTS_row, aes(x = dim(mcts.random.spy)[1], y = spy_win_ratio, colour = "Random MCTS Agent")) +
+  geom_text(data=last_randomMCTS_row, aes(
+    x=dim(mcts.random.spy)[1], y = spy_win_ratio, label = paste0(round(spy_win_ratio, 2) * 100, "%")),
+            vjust = -1.5, color="green") +
+  
+
+  ylim(0, 1) +
+  
+  scale_colour_manual("",
+                      breaks = c("Random Agent", "Basic Agent", "Random MCTS Agent"),
+                      values = c("red", "blue", "green")) +
+  labs(subtitle = "Games Playing As Spy", x="", y="",)
+  
+spy_plot
+```
+
+# resistance games
+``` {r}
+last_basic_row = basic.res[dim(basic.res)[1],]
+last_random_row = random.res[dim(random.res)[1],]
+last_randomMCTS_row = mcts.random.res[dim(mcts.random.res)[1],]
+
+basic.res = data.frame(
+  games_played = seq(1:last_randomMCTS_row$games_played[1]),
+  res_win_ratio = rep(last_basic_row$res_win_ratio[1], last_randomMCTS_row$games_played[1])
+)
+
+random.res = data.frame(
+  games_played = seq(1:last_randomMCTS_row$games_played[1]),
+  res_win_ratio = rep(last_random_row$res_win_ratio[1], last_randomMCTS_row$games_played[1])
+)
+
+res_plot = ggplot() +
+  
+  geom_line(
+    data = basic.res, aes(x = games_played, y = res_win_ratio, colour = "Basic Agent")
+  ) +
+  
+  geom_line(
+    data = random.res, aes(x = games_played, y = res_win_ratio, colour = "Random Agent")
+  ) +
+  
+  geom_line(
+    data = mcts.random.res, aes(x = games_played, y = res_win_ratio, colour = "Random MCTS Agent")
+  ) +
+  
+  geom_point(data = last_basic_row, aes(x = dim(basic.res)[1], y = res_win_ratio, colour = "Basic Agent")) +
+  geom_text(data=last_basic_row, aes(
+    x=dim(basic.res)[1], y = res_win_ratio, label = paste0(round(res_win_ratio, 2) * 100, "%")),
+            vjust = -1.5, color="blue") +
+  
+  geom_point(data = last_random_row, aes(x = dim(random.res)[1], y = res_win_ratio, colour = "Random Agent")) +
+  geom_text(data=last_random_row, aes(
+    x=dim(random.res)[1], y = res_win_ratio, label = paste0(round(res_win_ratio, 2) * 100, "%")),
+            vjust = +1.2, hjust = -0.3, color="red") +
+  
+  geom_point(data = last_randomMCTS_row, aes(x = dim(mcts.random.res)[1], y = res_win_ratio, colour = "Random MCTS Agent")) +
+  geom_text(data=last_randomMCTS_row, aes(
+    x=dim(mcts.random.res)[1], y = res_win_ratio, label = paste0(round(res_win_ratio, 2) * 100, "%")),
+            vjust = +1.5, color="green") +
+  
+
+  ylim(0, 1) +
+  
+  scale_colour_manual("",
+                      breaks = c("Random Agent", "Basic Agent", "Random MCTS Agent"),
+                      values = c("red", "blue", "green")) +
+  labs(subtitle = "Games Playing As The Resistance", x="", y="")
+  
+res_plot
+```
+
+# all games
+``` {r}
+last_basic_row = basic.overall[dim(basic.overall)[1],]
+last_random_row = random.overall[dim(random.overall)[1],]
+last_randomMCTS_row = mcts.random.overall[dim(mcts.random.overall)[1],]
+
+basic.overall = data.frame(
+  games_played = seq(1:last_randomMCTS_row$games_played[1]),
+  win_ratio = rep(last_basic_row$win_ratio[1], last_randomMCTS_row$games_played[1])
+)
+
+random.overall = data.frame(
+  games_played = seq(1:last_randomMCTS_row$games_played[1]),
+  win_ratio = rep(last_random_row$win_ratio[1], last_randomMCTS_row$games_played[1])
+)
+
+overall_plot = ggplot() +
+  
+  geom_line(
+    data = basic.overall, aes(x = games_played, y = win_ratio, colour = "Basic Agent")
+  ) +
+  
+  geom_line(
+    data = random.overall, aes(x = games_played, y = win_ratio, colour = "Random Agent")
+  ) +
+  
+  geom_line(
+    data = mcts.random.overall, aes(x = games_played, y = win_ratio, colour = "Random MCTS Agent")
+  ) +
+  
+
+  geom_point(data = last_basic_row, aes(x = dim(basic.overall)[1], y = win_ratio, colour = "Basic Agent")) +
+  geom_text(data=last_basic_row, aes(
+    x=dim(basic.overall)[1], y = win_ratio, label = paste0(round(win_ratio, 2) * 100, "%")),
+            vjust = -1.5, color="blue") +
+  
+  geom_point(data = last_random_row, aes(x = dim(random.overall)[1], y = win_ratio, colour = "Random Agent")) +
+  geom_text(data=last_random_row, aes(
+    x=dim(random.overall)[1], y = win_ratio, label = paste0(round(win_ratio, 2) * 100, "%")),
+            vjust = +1.5, color="red") +
+  
+  
+  geom_point(data = last_randomMCTS_row, aes(x = dim(mcts.random.overall)[1], y = win_ratio, colour = "Random MCTS Agent")) +
+  geom_text(data=last_randomMCTS_row, aes(
+    x=dim(mcts.random.overall)[1], y = win_ratio, label = paste0(round(win_ratio, 2) * 100, "%")),
+            vjust = -0.3, hjust=+1, color="green") +
+  
+
+  ylim(0, 1) +
+  
+  scale_colour_manual("",
+                      breaks = c("Random Agent", "Basic Agent", "Random MCTS Agent"),
+                      values = c("red", "blue", "green")) +
+  
+  labs(subtitle = "All Games", x="", y="")
+
+overall_plot
+```
+
+``` {r, fig.height=3, fig.width=6}
+library(ggpubr)
+
+all.plots = ggarrange(
+  spy_plot, res_plot, overall_plot,
+  ncol=3, nrow=1, common.legend=TRUE,
+  heights=2,
+  legend="top"
+)
+
+all.plots = annotate_figure(
+  all.plots,
+  top = text_grob("Win Ratio of Various Agents with 'Basic Agent' Opponents",
+                  size=18, face="bold"),
+  left = text_grob("Win Ratio", size=14, rot=90),
+  bottom = text_grob("Games Simulated", size=14)
+)
+
+all.plots
+
+```
